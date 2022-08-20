@@ -26,6 +26,32 @@ function setPrice(isPriced, priceId, total) {
     return casePrice;
 }
 
+function setDiscount() {
+    let element = document.getElementById("subTotal");
+    let elementString = element.innerText;
+    let elementValue = parseFloat(elementString);
+    let subToDiscount = (elementValue * 10) / 100;
+    let discount = document.getElementById("discount");
+    discount.innerText = subToDiscount;
+}
+
+function SetTotal() {
+    let subTotalElement = document.getElementById("subTotal");
+    let subTotalelementString = subTotalElement.innerText;
+    let subTotalElementValue = parseFloat(subTotalelementString);
+
+    let discountTotalElement = document.getElementById("discount");
+    let discountTotalelementString = discountTotalElement.innerText;
+    let discountTotalElementValue = parseFloat(discountTotalelementString);
+
+    let totalElement = document.getElementById("total");
+    let totalelementString = totalElement.innerText;
+    let totalElementValue = parseFloat(totalelementString);
+
+    let calc = subTotalElementValue - discountTotalElementValue;
+    totalElement.innerText = calc;
+}
+
 let res = "";
 let res2 = "";
 // let resTotal = res + res2;
@@ -42,6 +68,8 @@ document
         res = calculate;
         subString = res;
         subElement.innerText = res + res2;
+        setDiscount();
+        SetTotal();
     });
 
 document
@@ -57,6 +85,8 @@ document
         res = calculatee;
         subString = res;
         subElement.innerText = res + res2;
+        setDiscount();
+        SetTotal();
     });
 
 document
@@ -71,6 +101,8 @@ document
         res2 = calculate;
         subString = res2;
         subElement.innerText = res + res2;
+        setDiscount();
+        SetTotal();
     });
 
 document
@@ -85,4 +117,6 @@ document
         let subString = parseInt(subValueString);
         res2 = calculatee;
         subElement.innerText = res + res2;
+        setDiscount();
+        SetTotal();
     });
